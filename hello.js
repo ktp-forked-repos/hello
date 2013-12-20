@@ -5,15 +5,18 @@ console.log("object="+JSON.stringify(object, null, 2));
 console.log("object="+JSON.stringify(object, null, 2));
 console.log("object="+JSON.stringify(object, null, 2));
 
-function hell (args) {
+function object2 (args) {
     var a;
     a=3;
     console.log('a');
 
 }
 
-function hell1()
-    {}
+function object1()
+{
+}
+
+
 
 if( document.URL.indexOf('/customercentre/myaccount/myprofile/')!==-1 || document.URL.indexOf('personal/my-account/my-profile')!==-1 ){ $('#editToEmail').click(); } else {window.location.href = '/customercentre/myaccount/myprofile';} return false;
  (function(){
