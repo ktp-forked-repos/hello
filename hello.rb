@@ -128,8 +128,14 @@ rescue Exception => e
   puts "    #{Tty.em}#{ISSUES_URL}#{Tty.reset}"
   puts e.backtrace
   exit 1
-else
-  exit 1 if Homebrew.failed?
+ensure
+  puts "hello"
+end
+
+begin
+  trap("INT", std_trap) # restore default CTRL-C handler
+rescue Exception => e
+  exit 1
 ensure
   puts "hello"
 end
