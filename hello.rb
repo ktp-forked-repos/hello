@@ -1,6 +1,12 @@
 #!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby -W0
 # encoding: UTF-8
 
+if sudo_check.include? cmd
+  if Process.uid.zero? and not File.stat(HOMEBREW_BREW_FILE).uid.zero?
+    raise "Cowardly refusing to `sudo brew #{cmd}`\n#{SUDO_BAD_ERRMSG}"
+  end
+end
+
 std_trap = trap("INT") { exit! 130 } # no backtrace thanks
 
 HOMEBREW_BREW_FILE = ENV['HOMEBREW_BREW_FILE']
@@ -129,13 +135,7 @@ rescue Exception => e
   puts e.backtrace
   exit 1
 ensure
-  puts "hello"
-end
-
-begin
-  trap("INT", std_trap) # restore default CTRL-C handler
-rescue Exception => e
-  exit 1
+  exit 1 if Homebrew.failed?
 ensure
   puts "hello"
 end
