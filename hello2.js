@@ -1,6 +1,6 @@
 /* 29 definitions:
  sublime3 display 17
- emacs js2-mode display 18
+ emacs js2-mode display 17
  */
 mymodule.RegistrationController = {
 
