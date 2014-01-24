@@ -1,0 +1,11 @@
+* hello
+world
+* bye
+world
+#+BEGIN_SRC ruby
+if sudo_check.include? cmd
+  if Process.uid.zero? and not File.stat(HOMEBREW_BREW_FILE).uid.zero?
+    raise "Cowardly refusing to `sudo brew #{cmd}`\n#{SUDO_BAD_ERRMSG}"
+  end
+end
+#+END_SRC
