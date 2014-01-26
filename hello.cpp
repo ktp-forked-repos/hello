@@ -18,9 +18,11 @@
 #include <QtGui/QGuiApplication>
 #include "applicationviewer.h"
 #include "todolistlibrary.h"
+
 #include "todosortfiltermodel.h"
 #include "settings.h"
 #include <QQmlEngine>
+
 #include <QQmlContext>
 #include <QRegExp>
 #include <QtQml>

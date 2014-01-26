@@ -10,6 +10,7 @@ mymodule.RegistrationController = {
 
     registerForMyaccountPage: function () {
         var self = this;
+        var s="";
 
         $registrationForm.validate({
             invalidHandler: function (form, validator) {

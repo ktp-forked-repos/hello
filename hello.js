@@ -17,7 +17,6 @@ function object1()
 }
 
 
-
 if( document.URL.indexOf('/customercentre/myaccount/myprofile/')!==-1 || document.URL.indexOf('personal/my-account/my-profile')!==-1 ){ $('#editToEmail').click(); } else {window.location.href = '/customercentre/myaccount/myprofile';} return false;
  (function(){
      //set up css style
