@@ -1,7 +1,7 @@
 * hello
 world
 * bye
-world
+# world
 #+BEGIN_SRC ruby
 if sudo_check.include? cmd
   if Process.uid.zero? and not File.stat(HOMEBREW_BREW_FILE).uid.zero?
@@ -9,3 +9,12 @@ if sudo_check.include? cmd
   end
 end
 #+END_SRC
+
+#+BEGIN_SRC sh
+if [[ -x a]];then
+  echo hello
+fi
+#+END_SRC
+#+BEGIN_EXAMPLE
+hello world
+#+END_EXAMPLE

@@ -3,7 +3,8 @@
 (message "hello1=%s" hello)
 (message "hello2=%s" hello)
 (message "hello3=%s" hello)
-(message "hello4=%s" hello)
+;; (message "hello4=%s" hello)
+(message test
 (message "hello5=%s" hello)
 (message "hello6=%s" hello)
 (message "hello7=%s" hello)

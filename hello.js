@@ -1,15 +1,9 @@
-console.log("object="+JSON.stringify(object, null, 2));
-console.log("object="+JSON.stringify(object, null, 2));
-console.log("object="+JSON.stringify(object, null, 2));
-console.log("object="+JSON.stringify(object, null, 2));
-console.log("object="+JSON.stringify(object, null, 2));
-console.log("object="+JSON.stringify(object, null, 2));
+$scope.$watch('tag', function(tag) {
+  $scope.validated = _isTagValid(tag);
+}, true);
 
-function object2 (args) {
-    var a;
-    a=3;
-    console.log('a');
-
+if (true) {
+  console.log('hello world');
 }
 
 function object1()

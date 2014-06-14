@@ -8,7 +8,7 @@ mymodule.RegistrationController = {
         return false;
     },
 
-    registerForMyaccountPage: function () {
+    registerFormMyaccountPage: function () {
         var self = this;
         var s="";
 
