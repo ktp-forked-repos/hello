@@ -14,6 +14,8 @@ end
 if [[ -x a]];then
   echo hello
 fi
+
+hello
 #+END_SRC
 #+BEGIN_EXAMPLE
 hello world

@@ -1,25 +1,3 @@
-(setq hello "world")
-(message "hello=%s" hello)
-(message "hello1=%s" hello)
-(message "hello2=%s" hello)
-(message "hello3=%s" hello)
-;; (message "hello4=%s" hello)
-(message test
-(message "hello5=%s" hello)
-(message "hello6=%s" hello)
-(message "hello7=%s" hello)
-(message "hello8=%s" hello)
-(message "hello9=%s" hello)
-(message "hello1=%s" hello)
-(message "hello1=%s" hello)
-(message "hello1=%s" hello)
-(message "hello1=%s" hello)
-(message "hello1=%s" hello)
-(message "hello1=%s" hello)
-(debug-print "hello")
-(debug-print "hello1")
-(debug-print "hello2")
-(debug-print "hello3")
-(debug-print 'hello4')
-
-<div>hello world</div>
+(setq web-mode-imenu-regexp-list
+             '((" \\(ng-[a-z]+\\)=\"\\([a-zA-Z0-9]+\\)" 1 2 "=")
+               ))

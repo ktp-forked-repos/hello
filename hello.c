@@ -169,6 +169,9 @@ static int __init obsolete_checksetup(char *line)
 
         p = __setup_start;
         do {
+            printf("hello world\n");
+        };
+        do {
                 int n = strlen(p->str);
                 if (parameqn(line, p->str, n)) {
                         if (p->early) {
