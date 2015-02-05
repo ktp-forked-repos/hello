@@ -139,3 +139,17 @@ ensure
 ensure
   puts "hello"
 end
+
+class Test
+  def this_works
+    bar.each do |blah|
+      blah.blarg
+    end
+  end
+
+  def this_does_not_work
+    shazam do
+      blah.blarg
+    end
+  end
+end
