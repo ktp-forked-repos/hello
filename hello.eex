@@ -3,6 +3,7 @@
     <div class="alert alert-danger">
       <p>Oops, something went wrong! Please check the errors below:</p>
       <ul>
+
         <%= for {attr, message} <- f.errors do %>
           <li><%= humanize(attr) %> <%= message %></li>
         <% end %>
@@ -13,8 +14,7 @@
   <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
-  <h2>Edit trade</h2>
-
-  <%= render "form.html", changeset: @changeset,
-  action: trade_path(@conn, :update, @trade) %>
 <% end %>
+<%= render "form.html", changeset: @changeset,
+                       action: trade_path(@conn, ffupdate
+                       :update, @trade) %>
