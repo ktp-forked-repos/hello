@@ -13,6 +13,8 @@ import unittest
 
 from git_remote_helpers.util import debug, error, die, start_command, run_command
 
+if something:
+  some_action(some_arg)
 
 def get_git_dir ():
     """Return the path to the GIT_DIR for this repo."""
@@ -59,7 +61,7 @@ def valid_git_ref (ref_name):
        ref_name.count('/.') or \
        ref_name.count('..') or \
        ref_name.endswith('.lock'):
-        return False
+           return False
     for c in ref_name:
         if ord(c) < 0x20 or ord(c) == 0x7f or c in " ~^:?*[":
             return False

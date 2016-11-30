@@ -106,6 +106,16 @@ initial
      join
   end
 
+  begin: block
+     fork
+        #20 reset = 1 ;
+        // data at absolute time 100
+        #100 data = 0 ;
+        // data at absolute time 120
+        #120 data = 1 ;
+     join_any
+  end
+
    always @(rst)// simple if -else
      if (rst)
        // procedural assignment
@@ -121,8 +131,8 @@ initial
         end
         else if (!STATUS)
           begin
-           q = newstatus ;
-           STATUS = hold ;
+             q = newstatus ;
+             STATUS = hold ;
           end
         else if (!READ) begin
            out = newvalue ;
@@ -209,20 +219,20 @@ initial forever @(posedge reset)
    always begin: MAIN //named definition
       if (!qfull)
         begin
-         recv(new, newdata) ; // call task
-         if (new) begin
-            q[head] = newdata ;
-            head = head + 1 ;
-         end
-      end else
-        begin
-           disable recv ;
-        end
+           recv(new, newdata) ; // call task
+           if (new) begin
+              q[head] = newdata ;
+              head = head + 1 ;
+           end
+        end else
+          begin
+             disable recv ;
+          end
    end // MAIN
 
 module foo2 (cs, in1, in2, ns);
    input [1:0] cs;
-   input in1, in2;
+   input       in1, in2;
    output [1:0] ns;
    function [1:0] generate_next_state;
       input [1:0] current_state ;
@@ -245,6 +255,27 @@ module foo2 (cs, in1, in2, ns);
    assign ns = generate_next_state(cs, in1,in2) ;
 endmodule
 
+module fork_join_all_process();
+   task automatic print_value;
+      input [7:0] value;
+      input [7:0] delay;
+      begin
+         #(delay) $display("@%g Passed Value %d Delay %d",
+                           $time, value, delay);
+      end
+   endtask
+
+   initial begin
+      fork
+         #1  print_value (10,7);
+         #1  print_value (8,5);
+         #1  print_value (4,2);
+      join
+      $display("@%g Came out of fork-join", $time);
+      #20  $finish;
+   end
+
+endmodule
 
 module adder (a, b, ci, co, sum,clk) ;
    input a, b, ci, clk ;
@@ -294,3 +325,31 @@ always @(posedge clk)
      begin
         output co, sum ;
      end
+
+   ifdef true
+     begin
+        output co, sum ;
+     end
+  else
+    begin
+       output co, sum ;
+    end
+   endif
+
+`ifdef behavioral
+ `include "groupA_beh.v ";
+ `include "groupB_beh.v ";
+ `include "ctrl_beh.v ";
+`else
+ `include "groupA_synth.v ";
+ `include "groupB_ synth.v ";
+ `include "ctrl_ synth.v ";
+`endif
+
+     `celldefine
+       module my_and(y, a, b);
+   output y;
+   input  a, b;
+   assign y = a & b;
+endmodule
+`endcelldefine
