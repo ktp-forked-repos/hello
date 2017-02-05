@@ -1,6 +1,14 @@
+#+OPTIONS: toc:nil title:nil author:nil num:nil
 * hello
 world
-* bye
+* bye hello world
+  :PROPERTIES: 
+  :EXPORT_OPTIONS: toc:nil title:nil author:nil num:nil
+  :MAIL_SUBJECT: mail title
+  :MAIL_TO: chenbin.sh@gmail.com
+  :MAIL_CC: person2@gmail.com
+  :MAIL_BCC: person3@gmail.com
+  :END:
 # world
 #+BEGIN_SRC ruby
 if sudo_check.include? cmd
@@ -20,3 +28,6 @@ hello
 #+BEGIN_EXAMPLE
 hello world
 #+END_EXAMPLE
+** test
+hello world
+** test world
